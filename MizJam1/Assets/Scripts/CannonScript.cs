@@ -10,8 +10,20 @@ public class CannonScript : MonoBehaviour
     public float timeBtwShoots;
     public Transform gunPoint;
 
+    public int pooledAmount = 4;
+    public List<GameObject> Bullets;
+
     private void Start()
     {
+        Bullets = new List<GameObject>();
+
+        for (int i = 0; i < pooledAmount; i++)
+        {
+            GameObject obj = Instantiate(Bullet);
+            obj.SetActive(false);
+            Bullets.Add(obj);
+        }
+
         StartCoroutine(Shoot());
     }
 
@@ -24,7 +36,18 @@ public class CannonScript : MonoBehaviour
         yield return new WaitForSeconds(timeBtwShoots);
         if (Activated)
         {
-            Instantiate(Bullet, gunPoint.transform.position, transform.rotation);
+            for (int i = 0; i < Bullets.Count; i++)
+            {
+                if (!Bullets[i].activeInHierarchy)
+                {
+                    Bullets[i].transform.position = gunPoint.transform.position;
+                    Bullets[i].transform.rotation = gunPoint.transform.rotation;
+                    Bullets[i].SetActive(true);
+                    break;
+                }
+            }
+
+            //Instantiate(Bullet, gunPoint.transform.position, transform.rotation);
         }
         if (rotationActivated)
         {

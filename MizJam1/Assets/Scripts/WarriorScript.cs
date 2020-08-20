@@ -24,7 +24,6 @@ public class WarriorScript : MonoBehaviour
             Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
 
             float differenceDist = Vector2.Distance(playerPos, myPos);
-            print("distancia " + differenceDist);
 
             if (differenceDist < minDistance)
             {
@@ -40,6 +39,7 @@ public class WarriorScript : MonoBehaviour
         if (c.gameObject.name == "Player")
         {
             c.gameObject.GetComponent<PlayerController>().Respawn();
+            Destroy(gameObject);
         }
     }
 }

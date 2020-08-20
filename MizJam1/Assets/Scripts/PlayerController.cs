@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 4;
     public float runMultiplier;
     public KeyCode runKey;
+    public static KeyCode runKeyGlobal;
     public static Vector2 Checkpoint;
 
     private void Start()
     {
         Checkpoint = new Vector2(0, 0);// in the start the begging is the checkpoint
+        runKeyGlobal = runKey;
     }
 
     private void FixedUpdate()
