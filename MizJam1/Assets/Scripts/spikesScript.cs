@@ -18,5 +18,10 @@ public class spikesScript : MonoBehaviour
         {
             c.gameObject.GetComponent<PlayerController>().Respawn();
         }
+
+        if (c.gameObject.tag == "warrior")
+        {
+            Destroy(c.gameObject);
+        }
     }
 }

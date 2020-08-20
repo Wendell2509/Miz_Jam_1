@@ -23,6 +23,11 @@ public class BulletScript : MonoBehaviour
             c.gameObject.GetComponent<PlayerController>().Respawn();
         }
 
+        if (c.gameObject.tag == "warrior")
+        {
+            Destroy(c.gameObject);
+        }
+
         if (c.gameObject.name != "Cannon")
         {
             Destroy(gameObject);

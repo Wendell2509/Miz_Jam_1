@@ -125,7 +125,7 @@ MonoBehaviour:
   Bullet: {fileID: 8375498490250000069, guid: 3870afc5de86d834bb0ad62c13d15b4e, type: 3}
   Activated: 1
   rotationActivated: 0
-  timeBtwShoots: 2
+  timeBtwShoots: 4
   gunPoint: {fileID: 5267462304085222007}
 --- !u!1 &8306595614722705117
 GameObject:
