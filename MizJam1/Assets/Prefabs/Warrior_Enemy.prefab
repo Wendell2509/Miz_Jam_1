@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63133c5537f2b04ca6795335d9a7b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
+  minDistance: 10
   Player: {fileID: 0}
   direcao: {x: 0, y: 0}
