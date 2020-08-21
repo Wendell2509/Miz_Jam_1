@@ -26,16 +26,6 @@ public class MenuManager : MonoBehaviour
                 Menus[i].SetActive(false);
             }
         }
-
-        ReloadScene();
-    }
-
-    private void ReloadScene()
-    {
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 
     public void GoToMenu()
@@ -45,21 +35,22 @@ public class MenuManager : MonoBehaviour
 
     public void GoPlay()
     {
-        MenuActive = 1;
+        SceneManager.LoadScene("level1");
     }
 
     public void GoToSettings()
     {
-        MenuActive = 2;
+        MenuActive = 1;
     }
 
     public void GoToCredits()
     {
-        MenuActive = 3;
+        MenuActive = 2;
     }
 
     public void Quit()
     {
+        print("Quiting");
         Application.Quit();
     }
 }
