@@ -29,28 +29,31 @@ public class stopTheTimer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D c)
     {
-        timeBeforeStart = t;
-        timerManager.timeRunning = setBoolTimer;
-        gameObject.SetActive(false);
-
-        switch (levels)
+        if (c.gameObject.name == "Player")
         {
-            case Levels.L1:
+            timeBeforeStart = t;
+            timerManager.timeRunning = setBoolTimer;
+            gameObject.SetActive(false);
 
-                timerRecordManager.record1 = timerManager.levelTimer;
-                break;
+            switch (levels)
+            {
+                case Levels.L1:
 
-            case Levels.L2:
-                timerRecordManager.record2 = timerManager.levelTimer;
-                break;
+                    timerRecordManager.record1 = timerManager.levelTimer;
+                    break;
 
-            case Levels.L3:
-                timerRecordManager.record3 = timerManager.levelTimer;
-                break;
+                case Levels.L2:
+                    timerRecordManager.record2 = timerManager.levelTimer;
+                    break;
 
-            default:
-                print("out of range");
-                break;
+                case Levels.L3:
+                    timerRecordManager.record3 = timerManager.levelTimer;
+                    break;
+
+                default:
+                    print("out of range");
+                    break;
+            }
         }
     }
 }

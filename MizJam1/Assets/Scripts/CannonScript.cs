@@ -6,11 +6,10 @@ public class CannonScript : MonoBehaviour
 {
     public GameObject Bullet;
     public bool Activated;
-    public bool rotationActivated;
     public float timeBtwShoots;
     public Transform gunPoint;
 
-    public int pooledAmount = 4;
+    public int pooledAmount = 30;
     public List<GameObject> Bullets;
 
     private void Start()
@@ -49,10 +48,7 @@ public class CannonScript : MonoBehaviour
 
             //Instantiate(Bullet, gunPoint.transform.position, transform.rotation);
         }
-        if (rotationActivated)
-        {
-            //rotate 90 degrees
-        }
+
         StartCoroutine(Shoot());
     }
 }
