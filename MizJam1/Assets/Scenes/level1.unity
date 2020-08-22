@@ -5610,7 +5610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024579077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6311,8 +6311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRunTimerTxt: {fileID: 812937737}
-  startTime: 0
-  currentTime: 0
 --- !u!4 &1130033159
 Transform:
   m_ObjectHideFlags: 0
@@ -6811,6 +6809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setBoolTimer: 0
+  levels: 0
 --- !u!61 &1207217742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51162,6 +51161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setBoolTimer: 1
+  levels: 0
 --- !u!61 &2008962510
 BoxCollider2D:
   m_ObjectHideFlags: 0

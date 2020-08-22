@@ -28,27 +28,42 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void GoToMenu()
+    public void _GoToMenu()
     {
         MenuActive = 0;
     }
 
-    public void GoPlay()
+    public void _GoLevel1()
     {
         SceneManager.LoadScene("level1");
     }
 
-    public void GoToSettings()
+    public void _GoLevel2()
+    {
+        SceneManager.LoadScene("level2");
+    }
+
+    public void _GoLevel3()
+    {
+        SceneManager.LoadScene("level3");
+    }
+
+    public void _GoToLevelSelector()
     {
         MenuActive = 1;
     }
 
-    public void GoToCredits()
+    public void _GoToSettings()
     {
         MenuActive = 2;
     }
 
-    public void Quit()
+    public void _GoToCredits()
+    {
+        MenuActive = 3;
+    }
+
+    public void _Quit()
     {
         print("Quiting");
         Application.Quit();

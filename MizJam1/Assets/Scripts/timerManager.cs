@@ -6,15 +6,12 @@ using UnityEngine.UI;
 public class timerManager : MonoBehaviour
 {
     public Text speedRunTimerTxt;
-    public float startTime;
-    public float currentTime;
     public static bool timeRunning;
-    public static float t;
+    public static float totalTime;
+    public static string levelTimer;
 
     private void Start()
     {
-        currentTime = startTime;
-
         timeRunning = false;
     }
 
@@ -22,11 +19,12 @@ public class timerManager : MonoBehaviour
     {
         if (timeRunning)
         {
-            t = Time.time - stopTheTimer.timeBeforeStart;
+            totalTime = Time.time - stopTheTimer.timeBeforeStart;
 
-            string minutes = ((int)t / 60).ToString();
-            string seconds = (t % 60).ToString("f2");
+            string minutes = ((int)totalTime / 60).ToString();
+            string seconds = (totalTime % 60).ToString("f2");
 
+            levelTimer = "Time: " + minutes + ":" + seconds;
             speedRunTimerTxt.text = "Time: " + minutes + ":" + seconds;
         }
     }
