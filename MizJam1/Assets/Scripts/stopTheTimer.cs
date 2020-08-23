@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class stopTheTimer : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class stopTheTimer : MonoBehaviour
 
     private float t;
     public static float timeBeforeStart;
+    public Collider2D coll;
 
     public enum Levels
     {
@@ -20,6 +23,7 @@ public class stopTheTimer : MonoBehaviour
 
     private void Start()
     {
+        coll = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -33,10 +37,12 @@ public class stopTheTimer : MonoBehaviour
         {
             timeBeforeStart = t;
             timerManager.timeRunning = setBoolTimer;
-            gameObject.SetActive(false);
+            coll.enabled = false;
 
             if (!setBoolTimer)
             {
+                StartCoroutine(GoTOMenu());
+
                 switch (levels)
                 {
                     case Levels.L1:
@@ -85,5 +91,11 @@ public class stopTheTimer : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator GoTOMenu()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("menu");
     }
 }
