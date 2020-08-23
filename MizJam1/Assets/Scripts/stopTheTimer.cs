@@ -35,24 +35,54 @@ public class stopTheTimer : MonoBehaviour
             timerManager.timeRunning = setBoolTimer;
             gameObject.SetActive(false);
 
-            switch (levels)
+            if (!setBoolTimer)
             {
-                case Levels.L1:
+                switch (levels)
+                {
+                    case Levels.L1:
 
-                    timerRecordManager.record1 = timerManager.levelTimer;
-                    break;
+                        if (PlayerPrefs.GetFloat("R1f") > timerManager.totalTime || PlayerPrefs.GetFloat("R1f") == 0)
+                        {
+                            print("record1: " + PlayerPrefs.GetFloat("R1f") + " > " + timerManager.totalTime);
+                            Debug.Log("New record level 1: " + timerManager.levelTimer);
+                            PlayerPrefs.SetString("record1", timerManager.levelTimer);
+                            PlayerPrefs.SetFloat("R1f", timerManager.totalTime);
+                        } else
+                        {
+                            print("too slow record still " + PlayerPrefs.GetString("record1"));
+                        }
+                        break;
 
-                case Levels.L2:
-                    timerRecordManager.record2 = timerManager.levelTimer;
-                    break;
+                    case Levels.L2:
+                        if (PlayerPrefs.GetFloat("R2f") > timerManager.totalTime || PlayerPrefs.GetFloat("R2f") == 0)
+                        {
+                            print("record2: " + PlayerPrefs.GetFloat("R2f") + " > " + timerManager.totalTime);
+                            Debug.Log("New record level 2: " + timerManager.levelTimer);
+                            PlayerPrefs.SetString("record2", timerManager.levelTimer);
+                            PlayerPrefs.SetFloat("R2f", timerManager.totalTime);
+                        } else
+                        {
+                            print("too slow record still " + PlayerPrefs.GetString("record2"));
+                        }
+                        break;
 
-                case Levels.L3:
-                    timerRecordManager.record3 = timerManager.levelTimer;
-                    break;
+                    case Levels.L3:
+                        if (PlayerPrefs.GetFloat("R3f") > timerManager.totalTime || PlayerPrefs.GetFloat("R3f") == 0)
+                        {
+                            print("record3: " + PlayerPrefs.GetFloat("R3f") + " > " + timerManager.totalTime);
+                            Debug.Log("New record level 3: " + timerManager.levelTimer);
+                            PlayerPrefs.SetString("record3", timerManager.levelTimer);
+                            PlayerPrefs.SetFloat("R3f", timerManager.totalTime);
+                        } else
+                        {
+                            print("too slow record still " + PlayerPrefs.GetString("record3"));
+                        }
+                        break;
 
-                default:
-                    print("out of range");
-                    break;
+                    default:
+                        print("out of range");
+                        break;
+                }
             }
         }
     }
